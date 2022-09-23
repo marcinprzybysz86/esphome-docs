@@ -128,7 +128,19 @@ Configuration example:
     esp8266:
       board: esp01_1m
       restore_from_flash: true
+    wifi:
+      ssid: !secret wifi_iot_ssid
+      password: !secret wifi_iot_password
 
+      # Enable fallback hotspot (captive portal) in case wifi connection fails
+      ap:
+        ssid: ${friendly_name} AP
+        password: !secret esphome_fallback_ap_password
+
+captive_portal:
+
+# Enable logging
+logger:
     i2c:
       sda: GPIO12
       scl: GPIO14
